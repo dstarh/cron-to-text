@@ -1,0 +1,6 @@
+#!/bin/bash
+raw=$1
+exp=${raw// /+}
+url="https://cronexpressiondescriptor.azurewebsites.net/api/descriptor/?expression=${exp}&locale=en-US"
+desc=`curl -s $url | jq -r '.description'`
+echo $desc
