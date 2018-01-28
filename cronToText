@@ -1,6 +1,7 @@
 #!/bin/bash
 raw=$1
 exp=${raw// /+}
+GREEN='\033[1;32m'
 url="https://cronexpressiondescriptor.azurewebsites.net/api/descriptor/?expression=${exp}&locale=en-US"
 desc=`curl -s $url | jq -r '.description'`
-echo $desc
+printf "${GREEN}${desc}"
